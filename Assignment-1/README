@@ -1,0 +1,11 @@
+This is assignment 1 of Deep Learning For Natural Language Processing
+
+Palindrome predicter using back-propagation
+
+I have added different models ( with varying hidden neurons )
+
+
+to run the repository
+1. download the required libraries
+2. run flask --app main.py run
+3. go to http://127.0.0.1:5000 or http://localhost:5000

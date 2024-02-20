@@ -309,7 +309,8 @@ def predict_output_3(example):
 
 
 def predict_output_2(example):
-  model = model_2_list[0]
+  # 5th epoch gave 100 %
+  model = model_2_list[4]
   return predict_output(model , example)
 
 
