@@ -7,6 +7,8 @@ from tqdm.notebook import tqdm_notebook
 import random
 import pickle
 
+import __main__
+
 np.random.seed(42)
 
 
@@ -65,7 +67,7 @@ class Linearlayer():
 
 
 
-
+__main__.Linearlayer = Linearlayer
 
 
 # Activation Function
@@ -128,7 +130,7 @@ class ActivationLayer():
 
 
 
-
+__main__.ActivationLayer = ActivationLayer
 
 
 
@@ -145,6 +147,8 @@ def binary_cross_entropy_loss_function(predicted,actual):
   # return loss_val
 
 
+__main__.binary_cross_entropy_loss_function = binary_cross_entropy_loss_function
+
 
 def derivative_binary_cross_entropy_loss_function(predicted , actual):
   if actual == 1:
@@ -153,11 +157,17 @@ def derivative_binary_cross_entropy_loss_function(predicted , actual):
     return 1/(1-predicted)
 
 
+__main__.derivative_binary_cross_entropy_loss_function = derivative_binary_cross_entropy_loss_function
+
+
 def weighted_binary_cross_entropy_loss_function(predicted , actual , weight_1 = 10, weight_0 = 1):
   if actual == 1:
     return -1 * weight_1 * log2(predicted)
   else:
     return -1 * weight_0 *log2(1-predicted)
+
+
+__main__.weighted_binary_cross_entropy_loss_function = weighted_binary_cross_entropy_loss_function
 
 def derivative_weighted_binary_cross_entropy_loss_function(predicted , actual , weight_1 = 5, weight_0 = 1):
   if actual == 1:
@@ -167,14 +177,18 @@ def derivative_weighted_binary_cross_entropy_loss_function(predicted , actual , 
 
 
 
+__main__.derivative_weighted_binary_cross_entropy_loss_function = derivative_weighted_binary_cross_entropy_loss_function
+
 
 def mse_error(predicted , actual):
   return np.square(predicted - actual) / 2
 
+__main__.mse_error = mse_error
+
 def derivative_mse_error(predicted,output):
   return predicted - output
 
-
+__main__.derivative_mse_error = derivative_mse_error
 
 
 
@@ -255,10 +269,19 @@ class NeuralNet():
 
 
 
+__main__.NeuralNet = NeuralNet
+
+
+
+
+
 def predict_output(model , example):
     example = np.array(example)
     pred = model.predict(example)
-    return pred[0][0]
+    if pred == True:
+      return "Palindrome"
+    return "Not Palindrome"
+
 
 
 models_5_list = pickle.load(open("models/models_5_list.pkl" , "rb"))

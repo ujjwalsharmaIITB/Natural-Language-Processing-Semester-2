@@ -15,7 +15,11 @@ def returnHomePage():
 @app.get("/model_5/<example>")
 def return_pred_5(example):
     example = example.strip()
-    example = [ x for x in example]
+    if len(example) != 10:
+        return jsonify({
+        'prediction' : f"Length must be 10; was {len(example)}"
+    })
+    example = [ int(x) for x in example]
     return jsonify({
         'prediction' : neural_network_class.predict_output_5(example)
     })
@@ -24,7 +28,11 @@ def return_pred_5(example):
 @app.get("/model_4/<example>")
 def return_pred_4(example):
     example = example.strip()
-    example = [ x for x in example]
+    if len(example) != 10:
+        return jsonify({
+        'prediction' : f"Length must be 10; was {len(example)}"
+    })
+    example = [ int(x) for x in example]
     return jsonify({
         'prediction' : neural_network_class.predict_output_4(example)
     })
@@ -33,7 +41,11 @@ def return_pred_4(example):
 @app.get("/model_3/<example>")
 def return_pred_3(example):
     example = example.strip()
-    example = [ x for x in example]
+    if len(example) != 10:
+        return jsonify({
+        'prediction' : f"Length must be 10; was {len(example)}"
+    })
+    example = [ int(x) for x in example]
     return jsonify({
         'prediction' : neural_network_class.predict_output_3(example)
     })
@@ -42,7 +54,12 @@ def return_pred_3(example):
 @app.get("/model_2/<example>")
 def return_pred_2(example):
     example = example.strip()
-    example = [ x for x in example]
+    if len(example) != 10:
+        return jsonify({
+        'prediction' : f"Length must be 10; was {len(example)}"
+    })
+    example = [ int(x) for x in example]
     return jsonify({
         'prediction' : neural_network_class.predict_output_2(example)
     })
+
