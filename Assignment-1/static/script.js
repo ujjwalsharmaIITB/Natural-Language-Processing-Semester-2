@@ -11,44 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Creating a request object to send to the backend API
         // Just replace '/api/predict' with the actual API endpoint URL
         console.log(selectedModel)
-        var apiUrl = ""
+        var apiUrl = `/${selectedModel}/${sentence}`
 
-        if(selectedModel === "encdecV1") {
-            console.log(selectedModel)
-            apiUrl = "/getTranslation/v1/"+ sentence;
-            console.log(apiUrl)
-        } else if (selectedModel === "encdecV2") {
-            console.log(selectedModel)
-            apiUrl = "/getTransformerV2/"+ sentence
-            console.log(apiUrl)
-
-        } else if (selectedModel === "transformerV1") {
-            console.log(selectedModel)
-            apiUrl = "/getTransformerV1/"+ sentence
-            console.log(apiUrl)
-            
-
-        } else if (selectedModel === "transformerV2") {
-            console.log(selectedModel)
-            apiUrl = "/getTransformerV2/"+ sentence
-            console.log(apiUrl)
-
-        }   else if (selectedModel === "transformerV3") {
-            console.log(selectedModel)
-            apiUrl = "/getTransformerV3/"+ sentence
-            console.log(apiUrl)
-
-        }   else if (selectedModel === "transformerV4") {
-            console.log(selectedModel)
-            apiUrl = "/getTransformerV4/"+ sentence
-            console.log(apiUrl)
-            
-
-        }   else {
-            console.log("Wronfg Selection")
-            apiUrl = ''
-        }
-
+        console.log("apiUrl" , apiUrl)
 
 
         const request = new Request(apiUrl, {
@@ -62,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 // handle the reesponse data here
-                predictionResult.innerHTML = `<h3>Translated Sentence :<h3><br> <b>${data['Translated Sentence']}</b>`;
+                predictionResult.innerHTML = `<h3>Prediction :<h3><br> <b>${data['prediction']}</b>`;
                 predictionResult.classList.add('show');
             })
             .catch(error => {
