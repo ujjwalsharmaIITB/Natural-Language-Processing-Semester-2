@@ -1,5 +1,6 @@
 * Ujjwal Sharma - ```23M0837```
 
+
 This is assignment 1 of Deep Learning For Natural Language Processing
 
 Palindrome predicter using back-propagation
@@ -9,7 +10,7 @@ I have added different models ( with varying hidden neurons )
 Main File - Manual_Neural_Network with model saving.ipynb
 
 
-all the code in this python notebook is segregated in different files
+all the code in this python notebook has been segregated in different files
     
 * [neural_network_class.py](neural_network_class.py) - contains all the classes that are used to define the model
 
