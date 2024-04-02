@@ -1,0 +1,21 @@
+
+
+
+
+use requirements.txt to download the dependencies
+
+
+# Training code is in codes folder
+Notebook - code/CS772_BPTT_Code.ipynb
+python code - code/cs772_bptt_code.py
+
+
+
+use `python -m spacy download en_core_web_sm` if this error shows : "Can't find model 'en_core_web_sm'."S 
+
+
+* to run the inference code
+
+```python
+flask --app main.py run
+```
